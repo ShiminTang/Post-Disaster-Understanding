@@ -34,7 +34,7 @@ tf.gfile = tf.io.gfile
 
 #load_model
 
-model_dir = ("./Damage_only/inference_model/frozen_inference_graph.pb")
+model_dir = ("trained/model/path/frozen_inference_graph.pb")
 
 detection_graph = tf.compat.v1.Graph()
 with detection_graph.as_default():
@@ -98,11 +98,11 @@ category_index = label_map_util.create_category_index_from_labelmap(
     PATH_TO_LABELS, use_display_name=True)
 
 # test image location
-image_path = './VOC/VOC2007/JPEGImages'
-gt_path = './New_Annotations/Damage_only'
-image_sample = 'C:/Users/MoMoJo/Desktop/Faster_resNet/VOC/VOC2007/JPEGImages/chrisear001.jpg'
+image_path = './test/image/path'
+gt_path = './ground truth/path'
+image_sample = 'sample/image/xxxx.jpg'
 
-test_file_path =('./VOC/VOC2007/ImageSets/Main/test.txt')
+test_file_path =('test/image/list/test.txt')
 test_files = pd.read_csv(test_file_path, sep=" ", header=None)
 output = pd.DataFrame(columns=('file','class', 'score'), index = None)
 
@@ -224,4 +224,4 @@ draw.text(
 """"""
 
 image_resize = image_pil.resize((792,612))
-image_resize.save('./moderate_DL_1.pdf')
+image_resize.save('./xxx.pdf')
